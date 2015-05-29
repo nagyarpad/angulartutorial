@@ -15,17 +15,17 @@ and open the template in the editor.
         * use of controller 
         * @syntax: ControllerName alias aliasname
         -->
-        <div ng-repeat="product in store.products"> <!-- dynamically display product's array element -->
-            <h1>{{product.name}}</h1> 
-            <h2>{{product.price}}</h2> 
-            <p>{{product.description}}</p>
-            <!-- 
-            * usage of directive - only show element if
-            * the value of expression is true
-            -->
-            <button ng-show="product.canPurchase"> Add to cart</button>
-            <hr/>
-        </div>
+        <ul class="list-group"> 
+            <li class="list-group-item" ng-repeat="product in store.products"><!-- dynamically display product's array element -->
+                <h3>
+                    {{product.name}}
+                    <em class="pull-right">{{product.price| currency}}</em>
+                </h3>
+                <div class="gallery">
+                    <img ng-src="{{product.images[0]}}"/>
+                </div>
+            </li>
+        </ul>
         <script type="text/javascript" src="assets/js/angular.min.js"></script>
         <script type="text/javascript" src="assets/js/app.js"></script>
     </body>
